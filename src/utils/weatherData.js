@@ -1,4 +1,4 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 import {
   faCloud,
   faCloudRain,
@@ -64,4 +64,23 @@ const printWeatherIcon = (info) => {
     const patata = icons.find((elem) => elem.type === info);
     return patata.icon
 };
-export { toCelsius, printWeatherIcon };
+
+const formatDate = (dateToTransform) => {
+  const daysOfWeek = [
+    "Domingo",
+    "Lunes",
+    "Martes",
+    "Miércoles",
+    "Jueves",
+    "Viernes",
+    "Sábado",
+  ];
+
+  const date = new Date(dateToTransform * 1000);
+
+  const dayOfWeek = date.getUTCDay();
+
+  return daysOfWeek[dayOfWeek];
+
+}
+export { toCelsius, printWeatherIcon, formatDate };
