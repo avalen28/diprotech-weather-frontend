@@ -5,17 +5,13 @@ import { useEffect } from "react";
 import MainPage from "./views/MainPage";
 
 function App() {
-  // const patata = async () => {
-  //   const test = await weatherService.getWeatherDataByLongLat(
-  //     "2.1769",
-  //     "41.3825"
-  //   );
-  //   console.log(test);
-  // };
+  const handleWeatherDataByLongLat = async () => {
+    const result = await weatherService.getWeatherDataByLongLat();
+  };
 
-  // useEffect(() => {
-  //   patata();
-  // }, []);
+  useEffect(() => {
+    handleWeatherDataByLongLat();
+  }, []);
   return (
     <div>
       <Routes>
