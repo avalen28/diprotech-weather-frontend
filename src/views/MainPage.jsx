@@ -2,6 +2,7 @@ import React from 'react';
 import CurrentLocationWeather from '../components/CurrentLocationWeather';
 import ForecastWeather from '../components/ForecastWeather';
 import NearbyCities from "../components/NearbyCities";
+import Map from '../components/Map';
 
 const MainPage = () => {
     return (
@@ -9,6 +10,7 @@ const MainPage = () => {
         <CurrentLocationWeather />
         <ForecastWeather />
         <NearbyCities />
+        <Map />
       </div>
     );
 };
