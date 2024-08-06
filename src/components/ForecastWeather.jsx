@@ -12,7 +12,6 @@ const ForecastWeather = () => {
 
       setCurrentWeather(list.slice(1, 6));
     }
-    console.log(currentWeather);
   }, [weather]);
     return <div>
         {currentWeather && currentWeather.length && currentWeather.map((daylyInfo,i) => {
