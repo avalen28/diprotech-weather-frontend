@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useWeather } from "../hooks/useWeather";
-import { toCelsius } from "../utils/weatherData";
+import { toCelsius, printWeatherIcon } from "../utils/weatherData";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const CurrentLocationWeather = () => {
   const { weather } = useWeather();
@@ -21,10 +22,24 @@ const CurrentLocationWeather = () => {
 
       {currentCity && currentWeather && (
         <div>
+          <FontAwesomeIcon
+            icon={printWeatherIcon(currentWeather.weather[0].main)}
+          />
           <h2>
-            {currentCity.name}, {currentCity.country}
+            {currentCity.name}
           </h2>
-          <p>{toCelsius(currentWeather.temp.day)}°C</p>
+          <div>
+            <p>Temperatura: {toCelsius(currentWeather.temp.day)}°C</p>
+            <p>
+              Sensación térmica: {toCelsius(currentWeather.feels_like.day)}°C
+            </p>
+          </div>
+          <div>
+            <p>Temperatura máxima: {toCelsius(currentWeather.temp.max)}°C</p>
+            <p>Temperatura mínima: {toCelsius(currentWeather.temp.min)}°C</p>
+          </div>
+          <p>Nubes: {currentWeather.clouds}%</p>
+          <p>Humedad: {currentWeather.humidity}%</p>
         </div>
       )}
     </div>
