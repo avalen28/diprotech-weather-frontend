@@ -3,7 +3,6 @@ import { toCelsius, printWeatherIcon, formatDate } from "../utils/weatherData";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const WeatherCard = ({ daylyInfo }) => {
-  console.log(daylyInfo);
   return (
     <div>
       <div>
