@@ -1,20 +1,20 @@
-const getCurrentLocationFromBrowser = () => {
-  return new Promise((resolve, reject) => {
-    if ("geolocation" in navigator) {
-      navigator.geolocation.getCurrentPosition(
-        (position) => {
-          const location = {
-            long: position.coords.longitude,
-            lat: position.coords.latitude,
-          };
-          resolve(location);
-        },
-        (error) => reject(error)
-      );
-    } else {
-      reject(new Error("Geolocation is not supported by this browser."));
+const getCurrentLocationFromBrowser = async () => {
+  if ("geolocation" in navigator) {
+    try {
+      const position = await new Promise((resolve, reject) => {
+        navigator.geolocation.getCurrentPosition(resolve, reject);
+      });
+
+      return {
+        long: position.coords.longitude,
+        lat: position.coords.latitude,
+      };
+    } catch (error) {
+      throw new Error(`Error getting location: ${error.message}`);
     }
-  });
+  } else {
+    throw new Error("Geolocation is not supported by this browser.");
+  }
 };
 
 export default getCurrentLocationFromBrowser;

@@ -9,13 +9,11 @@ class WeatherService {
   }
 
   async getWeatherDataByLongLat() {
-      try {
-      getCurrentLocationFromBrowser()
-        .then(async (currentCoordinates) => {
-            const { long, lat } = currentCoordinates;
-            const response = await this.api.get(`${long}/${lat}`);
-        })
-          .catch((error) => console.error(error));
+    try {
+      const currentCoordinates = await getCurrentLocationFromBrowser();
+      const { long, lat } = currentCoordinates;
+      const response = await this.api.get(`${long}/${lat}`);
+      return response.data;
     } catch (error) {
       console.error(error);
     }
