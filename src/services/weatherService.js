@@ -10,7 +10,7 @@ class WeatherService {
     async getWeatherDataByLongLat(long, lat) {
         try {
             const response = await this.api.get(`${long}/${lat}`);
-            return response
+            return response.data
         } catch (error) {
             console.error(error)
         }
