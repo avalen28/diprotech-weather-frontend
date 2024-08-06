@@ -1,9 +1,18 @@
 import { Icon } from "leaflet";
 import React, { useEffect, useState } from "react";
-import { MapContainer, Marker, TileLayer } from "react-leaflet";
+import { MapContainer, Marker, TileLayer, useMap } from "react-leaflet";
 import { useWeather } from "../hooks/useWeather";
 import "../App.css";
 import "leaflet/dist/leaflet.css";
+
+const UpdateMap = ({ center, zoom, zoomControl }) => {
+  const map = useMap();
+  useEffect(() => {
+    map.setView(center, zoom, zoomControl);
+  }, [center, zoom, zoomControl, map]);
+
+  return null;
+};
 
 const Map = () => {
   const { weather, handleWeatherService } = useWeather();
@@ -43,10 +52,12 @@ const Map = () => {
               position={location.location.coordinates.reverse()}
               icon={icon}
               eventHandlers={{
-                click: () => handleWeatherService(location.location.coordinates),
+                click: () =>
+                  handleWeatherService(location.location.coordinates.reverse()),
               }}
             ></Marker>
           ))}
+          <UpdateMap center={coordinates} zoom={11} zoomControl={false} />
         </MapContainer>
       )}
     </>
