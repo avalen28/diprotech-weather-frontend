@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useWeather } from "../hooks/useWeather";
 
 const NearbyCities = () => {
-  const { weather } = useWeather();
+  const { weather, handleWeatherService } = useWeather();
   const [nearbyCities, setNearbyCities] = useState(null);
 
   useEffect(() => {
@@ -17,7 +17,12 @@ const NearbyCities = () => {
       {nearbyCities &&
         nearbyCities.length &&
         nearbyCities.map((nearbyCity, i) => {
-          return <button key={i}>{nearbyCity.city}</button>;
+          const { location, id } = nearbyCity;
+          return (
+            <button onClick={()=> handleWeatherService(location.coordinates)} key={id}>
+              {nearbyCity.city}
+            </button>
+          );
         })}
     </div>
   );

@@ -8,10 +8,14 @@ class WeatherService {
     });
   }
 
-  async getWeatherDataByLongLat() {
+  async getWeatherDataByLongLat(coordinates) {
     try {
-      const currentCoordinates = await getCurrentLocationFromBrowser();
-      const { long, lat } = currentCoordinates;
+      if (!coordinates) {
+        const currentCoordinates = await getCurrentLocationFromBrowser();
+        const { long, lat } = currentCoordinates;
+        coordinates = [long, lat];
+      }
+      const [long, lat] = coordinates;
       const response = await this.api.get(`${long}/${lat}`);
       return response.data;
     } catch (error) {

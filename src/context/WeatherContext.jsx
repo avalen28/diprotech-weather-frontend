@@ -5,8 +5,10 @@ const WeatherContext = createContext();
 function WeatherProviderWrapper(props) {
   const [weather, setWeather] = useState(null);
 
-  const handleWeatherService = async () => {
-      const weatherDataFromAPI = await weatherService.getWeatherDataByLongLat();
+  const handleWeatherService = async (coordinates) => {
+      const weatherDataFromAPI = await weatherService.getWeatherDataByLongLat(
+        coordinates
+      );
       setWeather(weatherDataFromAPI)
   };
 
@@ -14,7 +16,7 @@ function WeatherProviderWrapper(props) {
     handleWeatherService();
   }, []);
   return (
-    <WeatherContext.Provider value={{ weather }}>
+    <WeatherContext.Provider value={{ weather, handleWeatherService }}>
       {props.children}
     </WeatherContext.Provider>
   );
