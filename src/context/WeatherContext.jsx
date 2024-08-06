@@ -6,10 +6,10 @@ function WeatherProviderWrapper(props) {
   const [weather, setWeather] = useState(null);
 
   const handleWeatherService = async (coordinates) => {
-      const weatherDataFromAPI = await weatherService.getWeatherDataByLongLat(
-        coordinates
-      );
-      setWeather(weatherDataFromAPI)
+    const weatherDataFromAPI = await weatherService.getWeatherDataByLongLat(
+      coordinates
+    );
+    setWeather(weatherDataFromAPI);
   };
 
   useEffect(() => {

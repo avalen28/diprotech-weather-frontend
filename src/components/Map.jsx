@@ -2,16 +2,18 @@ import { Icon } from "leaflet";
 import React, { useEffect, useState } from "react";
 import { MapContainer, Marker, TileLayer } from "react-leaflet";
 import { useWeather } from "../hooks/useWeather";
-import "../App.css"
+import "../App.css";
 import "leaflet/dist/leaflet.css";
 
 const Map = () => {
-  const [coordinates, setCoordinates] = useState([]);
-    const { weather } = useWeather();
+  const { weather, handleWeatherService } = useWeather();
+  const [coordinates, setCoordinates] = useState(null);
+  const [nearbyCities, setNearbyCities] = useState(null);
   useEffect(() => {
     if (weather) {
-        const { lon, lat } = weather.weatherData.city.coord;
-        setCoordinates([lat, lon]);
+      const { lon, lat } = weather.weatherData.city.coord;
+      setCoordinates([lat, lon]);
+      setNearbyCities(weather.nearbyCities);
     }
   }, [weather]);
   const icon = new Icon({
@@ -22,8 +24,8 @@ const Map = () => {
 
   return (
     <>
-      {!coordinates.length && "Loading"}
-      {coordinates.length > 0 && (
+      {!coordinates && "Loading"}
+      {coordinates && (
         <MapContainer
           center={coordinates}
           zoom={11}
@@ -34,7 +36,17 @@ const Map = () => {
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             detectRetina={true}
           />
-          <Marker position={coordinates} icon={icon}></Marker>
+          <Marker position={coordinates} icon={icon}></Marker>;
+          {nearbyCities.map((location) => (
+            <Marker
+              key={location.id}
+              position={location.location.coordinates.reverse()}
+              icon={icon}
+              eventHandlers={{
+                click: () => handleWeatherService(location.location.coordinates),
+              }}
+            ></Marker>
+          ))}
         </MapContainer>
       )}
     </>
