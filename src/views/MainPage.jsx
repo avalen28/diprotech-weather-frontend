@@ -1,9 +1,10 @@
 import React from 'react';
+import CurrentLocationWeather from '../components/CurrentLocationWeather';
 
 const MainPage = () => {
     return (
         <div>
-            hello main page
+           <CurrentLocationWeather/>
         </div>
     );
 };
