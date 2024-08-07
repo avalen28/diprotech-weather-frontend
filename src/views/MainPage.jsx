@@ -6,7 +6,7 @@ import Map from '../components/Map';
 
 const MainPage = () => {
     return (
-      <div>
+      <div className='App'>
         <CurrentLocationWeather />
         <ForecastWeather />
         <NearbyCities />

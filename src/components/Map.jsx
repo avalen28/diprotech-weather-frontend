@@ -2,7 +2,7 @@ import { Icon } from "leaflet";
 import React, { useEffect, useState } from "react";
 import { MapContainer, Marker, TileLayer, useMap } from "react-leaflet";
 import { useWeather } from "../hooks/useWeather";
-import "../App.css";
+import "../styles/map.css";
 import "leaflet/dist/leaflet.css";
 
 const UpdateMap = ({ center, zoom, zoomControl }) => {
