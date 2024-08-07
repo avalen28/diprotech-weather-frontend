@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useWeather } from "../hooks/useWeather";
 import WeatherCard from "./WeatherCard";
+import "../styles/forecastWeather.css"
 
 const ForecastWeather = () => {
   const { weather } = useWeather();
@@ -13,10 +14,10 @@ const ForecastWeather = () => {
       setCurrentWeather(list.slice(1, 6));
     }
   }, [weather]);
-    return <div>
+    return <div className="forecast-container">
         {currentWeather && currentWeather.length && currentWeather.map((daylyInfo,i) => {
             return (
-              <div key={i}>
+              <div key={i} className="weatherCard-container">
                 <WeatherCard daylyInfo={daylyInfo} />
               </div>
             );
