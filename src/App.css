@@ -6,3 +6,18 @@
   justify-content: flex-start;
   align-items: center;
 }
+.loading-container {
+  width: 150px;
+  height: 150px;
+  margin-top: 150px;
+  display: flex;
+  justify-content: center;
+}
+.loading-gif {
+  display: flex;
+  width: 50%;
+  height: 50%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

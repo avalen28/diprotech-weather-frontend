@@ -33,7 +33,6 @@ const Map = () => {
 
   return (
     <>
-      {!coordinates && "Loading"}
       {coordinates && (
         <MapContainer
           center={coordinates}

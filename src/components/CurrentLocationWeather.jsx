@@ -13,7 +13,6 @@ const CurrentLocationWeather = () => {
   useEffect(() => {
     if (weather) {
       const { city, list } = weather.weatherData;
-      console.log(weather.nearbyCities);
       setCurrentCity(city);
       setCurrentWeather(list[0]);
     }
@@ -21,8 +20,6 @@ const CurrentLocationWeather = () => {
 
   return (
     <div className="currentLocation-container">
-      {(!currentCity || !currentWeather) && <div>loading</div>}
-
       {currentCity && currentWeather && (
         <div className="currentLocation-info">
           <div className="refresh-button">
