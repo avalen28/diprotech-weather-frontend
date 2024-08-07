@@ -4,9 +4,10 @@
   justify-content: flex-start;
   align-items: center;
   padding: 15px;
-  background-image: url("https://mosaicplatform.eu/wp-content/uploads/2024/01/weather_.jpg");
-  background-size: 100vh;
+  background-image: url("./miscel/background.jpg");
+  background-size: cover;
   background-position: center;
+  height: 100vh;
 }
 .loading-container {
   width: 150px;
