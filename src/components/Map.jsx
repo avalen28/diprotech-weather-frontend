@@ -25,12 +25,16 @@ const Map = () => {
       setNearbyCities(weather.nearbyCities);
     }
   }, [weather]);
+  const currentIcon = new Icon({
+    iconUrl:
+      "https://static.vecteezy.com/system/resources/previews/023/554/762/original/red-map-pointer-icon-on-a-transparent-background-free-png.png",
+    iconSize: [28, 34],
+  });
   const icon = new Icon({
     iconUrl:
-      "https://www.citypng.com/public/uploads/preview/red-gps-location-symbol-icon-hd-png-116369431412wisxxt5bl.png",
-    iconSize: [24, 35],
+      "https://www.iconpacks.net/icons/2/free-location-pointer-icon-2961-thumb.png",
+    iconSize: [24, 28],
   });
-
   return (
     <>
       {coordinates && (
@@ -44,7 +48,7 @@ const Map = () => {
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             detectRetina={true}
           />
-          <Marker position={coordinates} icon={icon}></Marker>;
+          <Marker position={coordinates} icon={currentIcon}></Marker>;
           {nearbyCities.map((location) => (
             <Marker
               key={location.id}
