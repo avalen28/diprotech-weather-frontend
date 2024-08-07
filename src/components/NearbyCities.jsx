@@ -21,9 +21,9 @@ const NearbyCities = () => {
         nearbyCities.map((nearbyCity, i) => {
           const { location, id } = nearbyCity;
           return (
-            <button onClick={()=> handleWeatherService(location.coordinates.reverse())} key={id} className="nearby-city-button">
+            <div onClick={()=> handleWeatherService(location.coordinates.reverse())} key={id} className="nearby-city-button">
               {nearbyCity.city}
-            </button>
+            </div>
           );
         })}
     </div>
