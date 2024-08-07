@@ -34,7 +34,7 @@ const CurrentLocationWeather = () => {
             />
           </div>
 
-          <h2 className="city-name">{currentCity.name}</h2>
+          <h2 className="city-name title">{currentCity.name}</h2>
           <div className="block-info-1">
             <div className="weather-logo">
               <FontAwesomeIcon
@@ -47,10 +47,8 @@ const CurrentLocationWeather = () => {
               <p>
                 Sensación térmica {toCelsius(currentWeather.feels_like.day)}°C
               </p>
-            </div>
-            <div className="max-min-temp">
-              <p>Temp. máxima {toCelsius(currentWeather.temp.max)}°C</p>
-              <p>Temp. mínima {toCelsius(currentWeather.temp.min)}°C</p>
+              <p>Máx {toCelsius(currentWeather.temp.max)}°C</p>
+              <p>Mín {toCelsius(currentWeather.temp.min)}°C</p>
             </div>
           </div>
           <div className="block-info-2">

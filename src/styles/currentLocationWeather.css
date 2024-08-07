@@ -1,19 +1,22 @@
 .currentLocation-container {
+  padding: 15px;
   display: flex;
-  flex-direction: column;
-  align-content: center;
   align-items: center;
-  justify-content: center;
-  background-color: rgba(215, 220, 250, 0.278);
+  justify-content: space-evenly;
+  background-color: rgba(194, 214, 225, 0.695);
   border-radius: 10px;
   height: 40vh;
+  gap: 15px;
 }
 
 .currentLocation-info {
   width: 90%;
-  margin-top: 20px;
-  height: 74%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
+
 .refresh-button {
   display: flex;
   flex-direction: row;
@@ -21,34 +24,31 @@
 }
 .city-name {
   width: 100%;
-  height: 15%;
   text-align: center;
 }
 .block-info-1 {
   width: 100%;
-  height: 60%;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
 }
 .weather-logo {
-  padding-left: 10px;
-  width: 14.3%;
   height: 100%;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
 }
-.main-temperatures,
-.max-min-temp {
-  width: 33.3%;
+.weather-logo > svg {
+  font-size: 65px;
+}
+.main-temperatures {
   height: 100%;
   display: flex;
   flex-direction: column;
   gap: 10px;
   justify-content: center;
-  align-items: center;
+  text-align: left;
 }
 .max-min-temp {
   padding-left: 20px;
@@ -56,12 +56,14 @@
 
 .block-info-2 {
   width: 100%;
-  height: 15%;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
 }
 
-.loading-gif {
+@media only screen and (min-width: 450px) {
+  .currentLocation-container {
+    width: 30%;
+  }
 }

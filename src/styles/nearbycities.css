@@ -1,4 +1,4 @@
-.naerbycities-container {
+.nearbycities-container {
   display: flex;
   gap: 15px;
   padding: 20px;
@@ -8,7 +8,7 @@
 
 .nearby-city-button {
   padding: 10px;
-  background-color: rgba(215, 220, 250, 0.278);
+  background-color: rgba(194, 214, 225, 0.695);
   border-radius: 10px;
   border: none;
   cursor: pointer;
@@ -17,4 +17,9 @@
 }
 .nearby-city-button:hover {
   background-color: #0057b3a2;
+}
+@media only screen and (min-width: 450px) {
+  .nearbycities-container {
+    width: 94%;
+  }
 }

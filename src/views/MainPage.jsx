@@ -16,16 +16,17 @@ const MainPage = () => {
 
   return (
     <div className="App">
-
       {loading && (
         <div className="loading-container">
-          <img src={loadingGif} className="loading-gif" alt="Loading..."/> 
+          <img src={loadingGif} className="loading-gif" alt="Loading..." />
         </div>
       )}
       {!loading && (
         <>
-          <CurrentLocationWeather />
-          <ForecastWeather />
+          <div className="upper-block">
+            <CurrentLocationWeather />
+            <ForecastWeather />
+          </div>
           <NearbyCities />
           <Map />
         </>

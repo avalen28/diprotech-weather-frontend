@@ -15,7 +15,7 @@ const NearbyCities = () => {
     }
   }, [weather]);
   return (
-    <div className="naerbycities-container">
+    <div className="nearbycities-container">
       {nearbyCities &&
         nearbyCities.length &&
         nearbyCities.map((nearbyCity, i) => {

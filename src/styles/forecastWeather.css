@@ -1,21 +1,27 @@
 .forecast-container {
+  margin-top: 15px;
   display: flex;
   overflow-x: auto;
   gap: 15px;
   width: 100%;
-  padding: 0 15px;
-  height: 20vh;
+  height: 18vh;
+  justify-content: space-between;
 }
 
 .weatherCard-container {
   display: flex;
   flex: 0 0 auto;
   flex-direction: column;
-  width: 150px;
-  align-content: center;
-  justify-content: center;
+  width: 130px;
+  justify-content: space-evenly;
   align-items: center;
-  background-color: rgba(215, 220, 250, 0.278);
+  background-color: rgba(194, 214, 225, 0.695);
   border-radius: 10px;
   padding: 10px;
+}
+
+@media only screen and (min-width: 450px) {
+  .forecast-container {
+    width: 50%;
+  }
 }
