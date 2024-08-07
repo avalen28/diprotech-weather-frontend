@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 
 import { useWeather } from "../hooks/useWeather";
 
+import "../styles/nearbycities.css"
+
 const NearbyCities = () => {
   const { weather, handleWeatherService } = useWeather();
   const [nearbyCities, setNearbyCities] = useState(null);
@@ -13,13 +15,13 @@ const NearbyCities = () => {
     }
   }, [weather]);
   return (
-    <div>
+    <div className="naerbycities-container">
       {nearbyCities &&
         nearbyCities.length &&
         nearbyCities.map((nearbyCity, i) => {
           const { location, id } = nearbyCity;
           return (
-            <button onClick={()=> handleWeatherService(location.coordinates)} key={id}>
+            <button onClick={()=> handleWeatherService(location.coordinates)} key={id} className="nearby-city-button">
               {nearbyCity.city}
             </button>
           );
