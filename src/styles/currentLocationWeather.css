@@ -4,6 +4,9 @@
   align-content: center;
   align-items: center;
   justify-content: center;
+  background-color: rgba(215, 220, 250, 0.278);
+  border-radius: 10px;
+  height: 40vh;
 }
 
 .currentLocation-info {

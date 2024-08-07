@@ -4,6 +4,7 @@
   gap: 15px;
   width: 100%;
   padding: 0 15px;
+  height: 20vh;
 }
 
 .weatherCard-container {
@@ -11,9 +12,10 @@
   flex: 0 0 auto;
   flex-direction: column;
   width: 150px;
-  height: 110px;
-  border: 1px solid grey;
   align-content: center;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
+  background-color: rgba(215, 220, 250, 0.278);
+  border-radius: 10px;
+  padding: 10px;
 }
