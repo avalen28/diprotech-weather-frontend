@@ -2,6 +2,9 @@ import React from "react";
 import { toCelsius, printWeatherIcon, formatDate } from "../utils/weatherData";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "../styles/weatherCard.css";
+import { WeatherInfoShort } from "../interfaces";
+
+
 
 /**
  * WeatherCard component displays the weather information for a specific day.
@@ -13,7 +16,7 @@ import "../styles/weatherCard.css";
  * @param {Object} props.daylyInfo.temp - The temperature details for the specific day.
  * @returns {JSX.Element} The rendered component.
  */
-const WeatherCard = ({ daylyInfo }) => {
+const WeatherCard: React.FC<{ daylyInfo: WeatherInfoShort }> = ({ daylyInfo }) => {
   return (
     <>
       <h2 className="forecast-day title">{formatDate(daylyInfo.dt)}</h2>

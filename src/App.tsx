@@ -1,9 +1,10 @@
+
 import "./App.css";
 import { Routes, Route, Navigate } from "react-router-dom";
 import MainPage from "./views/MainPage";
 import ErrorPage from "./views/ErrorPage";
 
-function App() {
+const App: React.FC = () => {
   return (
     <div>
       <Routes>
@@ -14,6 +15,6 @@ function App() {
       </Routes>
     </div>
   );
-}
+};
 
 export default App;

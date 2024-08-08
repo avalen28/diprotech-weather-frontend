@@ -3,17 +3,18 @@ import { useWeather } from "../hooks/useWeather";
 import { toCelsius, printWeatherIcon } from "../utils/weatherData";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowsRotate } from "@fortawesome/free-solid-svg-icons";
-import "../styles/currentLocationWeather.css"
+import "../styles/currentLocationWeather.css";
+import { City, WeatherInfo } from "../interfaces";
 
 /**
  * CurrentLocationWeather component displays the current weather information for the user's location.
  * @component
  * @returns {JSX.Element} The rendered component.
  */
-const CurrentLocationWeather = () => {
-  const { weather, handleWeatherService } = useWeather();
-  const [currentCity, setCurrentCity] = useState(null);
-  const [currentWeather, setCurrentWeather] = useState(null);
+const CurrentLocationWeather: React.FC = () => {
+  const { weather, handleWeatherService } = useWeather()!;
+  const [currentCity, setCurrentCity] = useState<City | null>(null);
+  const [currentWeather, setCurrentWeather] = useState<WeatherInfo | null>(null);
 
   /**
    * useEffect hook to update the current city and weather when weather data is available.
@@ -45,9 +46,9 @@ const CurrentLocationWeather = () => {
           <h2 className="city-name title">{currentCity.name}</h2>
           <div className="block-info-1">
             <div className="weather-logo">
-              <FontAwesomeIcon
-                icon={printWeatherIcon(currentWeather.weather[0].main)}
-              />
+              {printWeatherIcon(currentWeather.weather[0].main) && (
+                <FontAwesomeIcon icon={printWeatherIcon(currentWeather.weather[0].main)!} />
+              )}
             </div>
 
             <div className="main-temperatures">

@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useWeather } from "../hooks/useWeather";
 import WeatherCard from "./WeatherCard";
-import "../styles/forecastWeather.css"
+import "../styles/forecastWeather.css";
+import { WeatherInfoShort } from "../interfaces";
+
 
 
 /**
@@ -9,9 +11,9 @@ import "../styles/forecastWeather.css"
  * @component
  * @returns {JSX.Element} The rendered component.
  */
-const ForecastWeather = () => {
-  const { weather } = useWeather();
-  const [currentWeather, setCurrentWeather] = useState(null);
+const ForecastWeather: React.FC = () => {
+  const weather = useWeather()?.weather;
+  const [currentWeather, setCurrentWeather] = useState<WeatherInfoShort[] | null>(null);
 
   /**
    * useEffect hook to update the weather forecast when weather data is available.
@@ -23,10 +25,11 @@ const ForecastWeather = () => {
       setCurrentWeather(list.slice(1, 6));
     }
   }, [weather]);
+
   return (
     <div className="forecast-container">
       {currentWeather &&
-        currentWeather.length &&
+        currentWeather.length > 0 &&
         currentWeather.map((daylyInfo, i) => {
           return (
             <div key={i} className="weatherCard-container">
