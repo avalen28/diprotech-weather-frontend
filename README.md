@@ -84,7 +84,11 @@ To run this application locally, follow these steps:
   - **Description**: This route is used to handle errors. When an error occurs in the application, the user is redirected to this page, where an error message is displayed and a link is provided to return to the main page.
 
 - **Undefined Routes Redirection**:
+
   - **Description**: Any other undefined route, such as `http://localhost:3000/dajdklajdkl`, is automatically redirected to the main page.
+
+- **Error Page (`http://localhost:3000/docs`)**:
+  - **Description**: Show the documentation about the App, such as components, functions, hooks...
 
 ## Notes 📝
 
