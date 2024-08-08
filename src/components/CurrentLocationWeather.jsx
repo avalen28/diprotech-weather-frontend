@@ -5,11 +5,19 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowsRotate } from "@fortawesome/free-solid-svg-icons";
 import "../styles/currentLocationWeather.css"
 
+/**
+ * CurrentLocationWeather component displays the current weather information for the user's location.
+ * @component
+ * @returns {JSX.Element} The rendered component.
+ */
 const CurrentLocationWeather = () => {
   const { weather, handleWeatherService } = useWeather();
   const [currentCity, setCurrentCity] = useState(null);
   const [currentWeather, setCurrentWeather] = useState(null);
 
+  /**
+   * useEffect hook to update the current city and weather when weather data is available.
+   */
   useEffect(() => {
     if (weather) {
       const { city, list } = weather.weatherData;

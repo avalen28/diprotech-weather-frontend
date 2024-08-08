@@ -3,6 +3,16 @@ import { toCelsius, printWeatherIcon, formatDate } from "../utils/weatherData";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "../styles/weatherCard.css";
 
+/**
+ * WeatherCard component displays the weather information for a specific day.
+ * @component
+ * @param {Object} props - The properties passed to the component.
+ * @param {Object} props.daylyInfo - The weather information for a specific day.
+ * @param {number} props.daylyInfo.dt - The Unix timestamp for the specific day.
+ * @param {Object} props.daylyInfo.weather - The weather details for the specific day.
+ * @param {Object} props.daylyInfo.temp - The temperature details for the specific day.
+ * @returns {JSX.Element} The rendered component.
+ */
 const WeatherCard = ({ daylyInfo }) => {
   return (
     <>

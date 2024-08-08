@@ -1,0 +1,15 @@
+{
+  "source": {
+    "include": ["src"],
+    "exclude": ["node_modules", "build", "public"]
+  },
+  "plugins": ["node_modules/jsdoc-babel"],
+  "babel": {
+    "presets": ["env", "react"]
+  },
+  "opts": {
+    "destination": "./public/docs",
+    "recurse": true,
+    "verbose": true
+  }
+}

@@ -5,6 +5,15 @@ import { useWeather } from "../hooks/useWeather";
 import "../styles/map.css";
 import "leaflet/dist/leaflet.css";
 
+/**
+ * UpdateMap component updates the map view when the center or zoom changes.
+ * @component
+ * @param {Object} props - The properties passed to the component.
+ * @param {Array<number>} props.center - The center coordinates of the map.
+ * @param {number} props.zoom - The zoom level of the map.
+ * @param {boolean} props.zoomControl - Whether the zoom control is enabled.
+ * @returns {null} This component does not render anything.
+ */
 const UpdateMap = ({ center, zoom, zoomControl }) => {
   const map = useMap();
   useEffect(() => {
@@ -14,10 +23,19 @@ const UpdateMap = ({ center, zoom, zoomControl }) => {
   return null;
 };
 
+/**
+ * Map component displays a map with markers for the current location and nearby cities.
+ * @component
+ * @returns {JSX.Element} The rendered component.
+ */
 const Map = () => {
   const { weather, handleWeatherService } = useWeather();
   const [coordinates, setCoordinates] = useState(null);
   const [nearbyCities, setNearbyCities] = useState(null);
+
+  /**
+   * useEffect hook to update the coordinates and nearby cities when weather data is available.
+   */
   useEffect(() => {
     if (weather) {
       const { lon, lat } = weather.weatherData.city.coord;

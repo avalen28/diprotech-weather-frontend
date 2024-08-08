@@ -8,7 +8,8 @@ function App() {
     <div>
       <Routes>
         <Route path="/" element={<MainPage />} />
-        <Route path="/error" element={<ErrorPage/>}/>
+        <Route path="/error" element={<ErrorPage />} />
+        <Route path="/docs/*" element={<Navigate to="/docs/index.html" />} />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </div>

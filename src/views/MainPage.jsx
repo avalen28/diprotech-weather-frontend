@@ -6,10 +6,18 @@ import Map from "../components/Map";
 import { useWeather } from "../hooks/useWeather";
 import loadingGif from "../miscel/loading.gif";
 
+/**
+ * MainPage component displays the main weather information including current location weather,
+ * forecast, nearby cities, and a map.
+ * @component
+ */
 const MainPage = () => {
   const { weather } = useWeather();
   const [loading, setLoading] = useState(true);
 
+  /**
+   * useEffect hook to update loading state when weather data is available.
+   */
   useEffect(() => {
     if (weather) setLoading(false);
   }, [weather]);

@@ -4,10 +4,18 @@ import { useWeather } from "../hooks/useWeather";
 
 import "../styles/nearbycities.css"
 
+/**
+ * NearbyCities component displays a list of nearby cities with weather information.
+ * @component
+ * @returns {JSX.Element} The rendered component.
+ */
 const NearbyCities = () => {
   const { weather, handleWeatherService } = useWeather();
   const [nearbyCities, setNearbyCities] = useState(null);
 
+  /**
+   * useEffect hook to update the nearby cities when weather data is available.
+   */
   useEffect(() => {
     if (weather) {
       const { nearbyCities } = weather;
@@ -21,7 +29,13 @@ const NearbyCities = () => {
         nearbyCities.map((nearbyCity, i) => {
           const { location, id } = nearbyCity;
           return (
-            <div onClick={()=> handleWeatherService(location.coordinates.reverse())} key={id} className="nearby-city-button">
+            <div
+              onClick={() =>
+                handleWeatherService(location.coordinates.reverse())
+              }
+              key={id}
+              className="nearby-city-button"
+            >
               {nearbyCity.city}
             </div>
           );

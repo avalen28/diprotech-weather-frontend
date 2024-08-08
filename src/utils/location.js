@@ -1,3 +1,11 @@
+
+/**
+ * Gets the current geographic location from the browser.
+ * @async
+ * @function
+ * @returns {Promise<{long: number, lat: number}>} The longitude and latitude of the current location.
+ * @throws {Error} If geolocation is not supported by the browser or if there is an error obtaining the location.
+ */
 const getCurrentLocationFromBrowser = async () => {
   if ("geolocation" in navigator) {
     try {

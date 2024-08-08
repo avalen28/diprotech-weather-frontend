@@ -3,7 +3,10 @@ import { Link } from "react-router-dom";
 import sadCloud from "../miscel/sadCloud.png"
 import "../styles/error.css"
 
-
+/**
+ * ErrorPage component displays an error message with a link to go back to the home page.
+ * @component
+ */
 const ErrorPage = () => {
     return (
         <div className='error-container App'>
