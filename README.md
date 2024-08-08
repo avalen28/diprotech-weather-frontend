@@ -96,7 +96,6 @@ To run this application locally, follow these steps:
 
 ## Future Improvements 🚀
 
-- Add typing to the application to improve code robustness.
 - Integrate additional features based on user feedback, such as a location search functionality.
 - Enhance the user experience.
 

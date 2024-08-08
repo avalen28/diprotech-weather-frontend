@@ -1,13 +1,13 @@
 import React from 'react';
 import { Link } from "react-router-dom";
-import sadCloud from "../miscel/sadCloud.png"
-import "../styles/error.css"
+import sadCloud from "../images/sadCloud.png";
+import "../styles/error.css";
 
 /**
  * ErrorPage component displays an error message with a link to go back to the home page.
  * @component
  */
-const ErrorPage = () => {
+const ErrorPage: React.FC = () => {
     return (
         <div className='error-container App'>
             <img src={sadCloud} className="error-img" alt="Error" />

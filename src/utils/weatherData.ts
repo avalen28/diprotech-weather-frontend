@@ -1,4 +1,3 @@
-
 import {
   faCloud,
   faCloudRain,
@@ -9,6 +8,7 @@ import {
   faWind,
   faSmog,
   faSun,
+  IconDefinition,
 } from "@fortawesome/free-solid-svg-icons";
 
 /**
@@ -16,16 +16,24 @@ import {
  * @param {number} temp - The temperature in Kelvin.
  * @returns {number} The temperature in Celsius, rounded to one decimal place.
  */
-const toCelsius = (temp) => {
+const toCelsius = (temp: number): number => {
   const celsius = temp - 273.15;
   return Math.round(celsius * 10) / 10;
 };
 
 /**
- * Array of weather types and their corresponding icons.
- * @type {Array<{type: string, icon: Object}>}
+ * Interface representing a weather icon mapping.
  */
-const icons = [
+interface WeatherIcon {
+  type: string;
+  icon: IconDefinition;
+}
+
+/**
+ * Array of weather types and their corresponding icons.
+ * @type {Array<WeatherIcon>}
+ */
+const icons: WeatherIcon[] = [
   {
     type: "Rain",
     icon: faCloudRain,
@@ -71,12 +79,11 @@ const icons = [
 /**
  * Finds and returns the corresponding weather icon for the given weather type.
  * @param {string} info - The type of weather.
- * @returns {Object} The icon corresponding to the weather type.
+ * @returns {IconDefinition } The icon corresponding to the weather type.
  */
-const printWeatherIcon = (info) => {
-
-    const patata = icons.find((elem) => elem.type === info);
-    return patata.icon
+const printWeatherIcon = (info: string): IconDefinition => {
+  const icon = icons.find((elem) => elem.type === info);
+  return icon!.icon;
 };
 
 /**
@@ -84,7 +91,7 @@ const printWeatherIcon = (info) => {
  * @param {number} dateToTransform - The Unix timestamp to format.
  * @returns {string} The day of the week in Spanish.
  */
-const formatDate = (dateToTransform) => {
+const formatDate = (dateToTransform: number): string => {
   const daysOfWeek = [
     "Domingo",
     "Lunes",
@@ -96,10 +103,9 @@ const formatDate = (dateToTransform) => {
   ];
 
   const date = new Date(dateToTransform * 1000);
-
   const dayOfWeek = date.getUTCDay();
 
   return daysOfWeek[dayOfWeek];
+};
 
-}
 export { toCelsius, printWeatherIcon, formatDate };
