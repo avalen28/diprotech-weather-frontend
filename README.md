@@ -67,7 +67,7 @@ I also created a git branch for each new task and linked the commit to its respe
 To run this application locally, follow these steps:
 
 1. Clone this repository.
-2. Navigate to the project directory: `cd diprotech-weather-app`.
+2. Navigate to the project directory.
 3. Install the necessary dependencies: `npm install`.
 4. Start the application: `npm start`.
 5. Open your web browser and go to [http://localhost:3000](http://localhost:3000) to view the app.
