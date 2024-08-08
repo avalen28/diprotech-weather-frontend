@@ -71,7 +71,6 @@ To run this application locally, follow these steps:
 3. Install the necessary dependencies: `npm install`.
 4. Start the application: `npm start`.
 5. Open your web browser and go to [http://localhost:3000](http://localhost:3000) to view the app.
-6. To test the application, use the script `npm run start`.
 
 ## Views and Routes
 
